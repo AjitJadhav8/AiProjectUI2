@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engagement Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb",
+            "primary-hover": "#1d4ed8",
+            "gray-light": "#f9fafb",
+            "gray-border": "#e5e7eb",
+          },
+          boxShadow: {
+            soft: "0 4px 20px rgba(0,0,0,0.05)",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-gray-light text-black h-screen overflow-hidden font-[Inter,sans-serif]">
+
+  <!-- LOGIN PAGE -->
+  <div id="login-page" class="h-full flex items-center justify-center bg-gradient-to-br from-blue-600 via-indigo-500 to-purple-600">
+    <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-8 w-full max-w-sm border border-white/40">
+      <div class="text-primary text-2xl font-bold text-center mb-4 tracking-tight">Engagement Hub</div>
+      <h2 class="text-base text-center mb-1 font-semibold text-gray-800">Welcome Back</h2>
+      <p class="text-gray-600 text-center mb-6 text-sm">Sign in to access your AI engagement dashboard</p>
+
+      <form id="login-form" class="space-y-3">
+        <input type="text" placeholder="Username or Email"
+          class="w-full p-2.5 border border-gray-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+          required>
+        <input type="password" placeholder="Password"
+          class="w-full p-2.5 border border-gray-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+          required>
+        <button type="submit"
+          class="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary-hover transition duration-200 text-sm">
+          Sign In
+        </button>
+      </form>
+
+      <div class="mt-4 text-center text-sm">
+        <a href="#" class="text-primary hover:underline">Forgot your password?</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <div id="navbar" class="hidden bg-white/90 backdrop-blur-md border-b border-gray-border py-2.5 px-5 flex justify-between items-center shadow-soft">
+    <div class="text-primary text-base font-semibold tracking-tight cursor-pointer hover:text-primary-hover transition" onclick="goBackToDashboard()">Engagement Hub</div>
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center text-xs font-medium">JD</div>
+      <div class="text-sm font-medium">John Doe</div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD PAGE (Landing) -->
+  <div id="dashboard-page" class="hidden h-[calc(100vh-48px)] overflow-hidden bg-gray-light p-5">
+    <h1 class="text-xl font-bold mb-1 tracking-tight">Customer Dashboard</h1>
+    <p class="text-gray-700 mb-4 text-sm">Select a customer to explore engagement insights.</p>
+
+    <!-- Search -->
+    <div class="flex mb-4">
+      <input type="text" placeholder="Search customers..."
+        class="flex-1 p-2 border border-gray-border rounded-l-lg focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent text-sm">
+      <button class="bg-primary text-white py-1.5 px-4 rounded-r-lg font-medium hover:bg-primary-hover transition duration-200 text-sm">
+        Search
+      </button>
+    </div>
+
+    <!-- Compact Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+        onclick="selectCustomer('TechCorp Inc.')">
+        <div class="font-semibold text-sm mb-0.5">TechCorp Inc.</div>
+        <div class="text-gray-700 text-xs">Technology • 250 employees • San Francisco</div>
+      </div>
+
+      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+        onclick="selectCustomer('Global Finance Ltd.')">
+        <div class="font-semibold text-sm mb-0.5">Global Finance Ltd.</div>
+        <div class="text-gray-700 text-xs">Finance • 500 employees • New York</div>
+      </div>
+
+      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+        onclick="selectCustomer('HealthPlus Medical')">
+        <div class="font-semibold text-sm mb-0.5">HealthPlus Medical</div>
+        <div class="text-gray-700 text-xs">Healthcare • 150 employees • Chicago</div>
+      </div>
+
+      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+        onclick="selectCustomer('EduFuture Academy')">
+        <div class="font-semibold text-sm mb-0.5">EduFuture Academy</div>
+        <div class="text-gray-700 text-xs">Education • 80 employees • Boston</div>
+      </div>
+
+      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+        onclick="selectCustomer('Retail Giant Co.')">
+        <div class="font-semibold text-sm mb-0.5">Retail Giant Co.</div>
+        <div class="text-gray-700 text-xs">Retail • 1000 employees • Dallas</div>
+      </div>
+
+      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+        onclick="selectCustomer('Green Energy Solutions')">
+        <div class="font-semibold text-sm mb-0.5">Green Energy Solutions</div>
+        <div class="text-gray-700 text-xs">Energy • 300 employees • Denver</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUSTOMER PAGE -->
+  <div id="customer-page" class="hidden h-[calc(100vh-48px)] overflow-hidden flex">
+    <!-- LEFT SIDEBAR -->
+    <div class="w-56 bg-white/80 backdrop-blur-md border-r border-gray-border p-4 flex-shrink-0 shadow-soft flex flex-col">
+      <!-- Quick Links Section -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2 text-xs tracking-wide uppercase">Quick Links</h2>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="text-primary hover:underline">MIRO</a></li>
+          <li><a href="#" class="text-primary hover:underline">SLIDO</a></li>
+          <li><a href="#" class="text-primary hover:underline">JIRA</a></li>
+          <li><a href="#" class="text-primary hover:underline">LINKEDIN</a></li>
+          <li><a href="#" class="text-primary hover:underline">7TABS</a></li>
+          <li><a href="#" class="text-primary hover:underline">TOGGL</a></li>
+          <li><a href="#" class="text-primary hover:underline">PSYCHOLOGY TEST</a></li>
+        </ul>
+      </div>
+
+      <!-- Horizontal Divider -->
+      <hr class="border-gray-border mb-4">
+
+      <!-- Chat History Section -->
+      <div>
+        <h2 class="font-semibold mb-2 text-xs tracking-wide uppercase">Chat History</h2>
+        <div class="space-y-2">
+          <div class="p-2 rounded-lg bg-gray-50 hover:bg-gray-100 cursor-pointer transition text-xs">
+            <div class="font-medium text-gray-800">Initial Discussion</div>
+            <div class="text-gray-500 text-[11px]">Yesterday, 2:30 PM</div>
+          </div>
+          <div class="p-2 rounded-lg bg-gray-50 hover:bg-gray-100 cursor-pointer transition text-xs">
+            <div class="font-medium text-gray-800">Project Planning</div>
+            <div class="text-gray-500 text-[11px]">Today, 10:15 AM</div>
+          </div>
+          <div class="p-2 rounded-lg bg-gray-50 hover:bg-gray-100 cursor-pointer transition text-xs">
+            <div class="font-medium text-gray-800">Requirements Review</div>
+            <div class="text-gray-500 text-[11px]">Today, 11:45 AM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="flex-1 flex flex-col bg-gray-light p-5">
+      <div class="mb-4">
+        <h1 id="customer-title" class="text-xl font-bold mb-0.5 tracking-tight">Customer Name</h1>
+        <p id="customer-description" class="text-gray-700 text-xs">Industry • Employees • Location</p>
+        <!-- Brief overview about the customer -->
+        <p id="customer-overview" class="text-gray-600 text-sm mt-2">Brief overview: TechCorp Inc. is a leading provider of cloud-based solutions focused on helping organizations modernize their IT and improve customer experiences. Recent engagements include automation, UX improvements, and platform migrations.</p>
+      </div>
+
+      <!-- Engagement Journey -->
+      <div class="mb-5">
+        <h3 class="font-semibold mb-3 text-xs uppercase tracking-wide text-gray-700">Engagement Journey</h3>
+        <div class="flex items-center justify-between relative">
+          <div class="flex flex-col items-center relative flex-1">
+            <div class="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-semibold border-2 border-primary z-10">1</div>
+            <div class="absolute top-3 left-1/2 w-full h-0.5 bg-gray-border z-0"></div>
+            <div class="text-primary font-medium text-[11px] mt-2">Pre-Kickoff</div>
+          </div>
+          <div class="flex flex-col items-center relative flex-1">
+            <div class="w-7 h-7 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center text-[10px] font-semibold border-2 border-gray-border z-10">2</div>
+            <div class="absolute top-3 left-1/2 w-full h-0.5 bg-gray-border z-0"></div>
+            <div class="text-gray-700 font-medium text-[11px] mt-2">Discovery</div>
+          </div>
+          <div class="flex flex-col items-center relative flex-1">
+            <div class="w-7 h-7 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center text-[10px] font-semibold border-2 border-gray-border z-10">3</div>
+            <div class="absolute top-3 left-1/2 w-full h-0.5 bg-gray-border z-0"></div>
+            <div class="text-gray-700 font-medium text-[11px] mt-2">Workshop</div>
+          </div>
+          <div class="flex flex-col items-center relative flex-1">
+            <div class="w-7 h-7 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center text-[10px] font-semibold border-2 border-gray-border z-10">4</div>
+            <div class="absolute top-3 left-1/2 w-full h-0.5 bg-gray-border z-0"></div>
+            <div class="text-gray-700 font-medium text-[11px] mt-2">Implementation</div>
+          </div>
+          <div class="flex flex-col items-center relative flex-1">
+            <div class="w-7 h-7 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center text-[10px] font-semibold border-2 border-gray-border z-10">5</div>
+            <div class="text-gray-700 font-medium text-[11px] mt-2">Review</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Assistant Input -->
+      <div id="ai-input-container" class="mt-auto bg-white border-t border-gray-border p-3 flex items-center shadow-sm rounded-t-xl relative">
+        <div class="text-yellow-500 text-lg mr-3">✨</div>
+        <input id="ai-input" type="text" placeholder="Ask AI or leave a note..."
+          class="flex-1 bg-transparent text-gray-900 focus:outline-none placeholder-gray-400 text-sm">
+        <div id="ai-actions" class="hidden flex items-center space-x-2">
+          <button id="send-btn" class="bg-primary text-white py-1 px-3 rounded-md font-medium hover:bg-primary-hover transition duration-200 text-xs">Send</button>
+          <button id="cancel-btn" class="bg-gray-200 text-gray-700 py-1 px-3 rounded-md font-medium hover:bg-gray-300 transition duration-200 text-xs">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT TREE STRUCTURE -->
+    <div class="w-56 bg-white/80 backdrop-blur-md border-l border-gray-border p-4 flex-shrink-0 shadow-soft">
+      <h2 class="font-semibold mb-2 text-xs uppercase tracking-wide">SharePoint Folders</h2>
+      <ul class="text-sm space-y-1.5 leading-relaxed">
+        <li>📁 01 Prep
+          <ul class="ml-4 text-gray-700 text-xs">
+            <li>📄 Notes.docx</li>
+            <li>📄 Checklist.xlsx</li>
+          </ul>
+        </li>
+        <li>📁 02 Interview
+          <ul class="ml-4 text-gray-700 text-xs">
+            <li>📄 Questions.docx</li>
+            <li>📄 Summary.pdf</li>
+          </ul>
+        </li>
+        <li>📁 03 Material
+          <ul class="ml-4 text-gray-700 text-xs">
+            <li>📄 Slides.pptx</li>
+          </ul>
+        </li>
+        <li>📁 04 Analysis</li>
+        <li>📁 05 Reports</li>
+        <li>📁 06 Final</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // --- AI Input Interaction ---
+    const aiInput = document.getElementById("ai-input");
+    const aiActions = document.getElementById("ai-actions");
+    const cancelBtn = document.getElementById("cancel-btn");
+
+    aiInput.addEventListener("focus", () => aiActions.classList.remove("hidden"));
+    cancelBtn.addEventListener("click", () => {
+      aiActions.classList.add("hidden");
+      aiInput.value = "";
+      aiInput.blur();
+    });
+
+    document.getElementById("send-btn").addEventListener("click", () => {
+      alert("AI processing your input: " + aiInput.value);
+      aiInput.value = "";
+      aiActions.classList.add("hidden");
+    });
+
+    // LOGIN
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("login-page").classList.add("hidden");
+      document.getElementById("navbar").classList.remove("hidden");
+      document.getElementById("dashboard-page").classList.remove("hidden");
+    });
+
+    // SELECT CUSTOMER
+    function selectCustomer(name) {
+      document.getElementById("dashboard-page").classList.add("hidden");
+      document.getElementById("customer-page").classList.remove("hidden");
+      document.getElementById("customer-title").textContent = name;
+
+      const descMap = {
+        "TechCorp Inc.": "Technology • 250 employees • San Francisco",
+        "Global Finance Ltd.": "Finance • 500 employees • New York",
+        "HealthPlus Medical": "Healthcare • 150 employees • Chicago",
+        "EduFuture Academy": "Education • 80 employees • Boston",
+        "Retail Giant Co.": "Retail • 1000 employees • Dallas",
+        "Green Energy Solutions": "Energy • 300 employees • Denver",
+      };
+      document.getElementById("customer-description").textContent = descMap[name] || "";
+    }
+
+    function goBackToDashboard() {
+      document.getElementById("customer-page").classList.add("hidden");
+      document.getElementById("dashboard-page").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
