@@ -16,6 +16,8 @@
           colors: {
             primary: "#2563eb",
             "primary-hover": "#1d4ed8",
+            "primary-light": "#dbeafe",
+            "primary-lighter": "#eff6ff",
             "gray-light": "#f9fafb",
             "gray-border": "#e5e7eb",
           },
@@ -32,19 +34,28 @@
   <!-- LOGIN PAGE -->
   <div id="login-page" class="h-full flex items-center justify-center bg-gradient-to-br from-blue-600 via-indigo-500 to-purple-600">
     <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-8 w-full max-w-sm border border-white/40">
-      <div class="text-primary text-2xl font-bold text-center mb-4 tracking-tight">Engagement Hub</div>
+      <div class="text-primary text-2xl font-bold text-center mb-4 tracking-tight flex items-center justify-center gap-2">
+        <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center text-white">
+          <i class="fas fa-comments text-sm"></i>
+        </div>
+        Engagement Hub
+      </div>
       <h2 class="text-base text-center mb-1 font-semibold text-gray-800">Welcome Back</h2>
-      <p class="text-gray-600 text-center mb-6 text-sm">Sign in to access your AI engagement dashboard</p>
+      <p class="text-gray-600 text-center mb-6 text-sm">Sign in to access your AI engagement tool</p>
 
       <form id="login-form" class="space-y-3">
-        <input type="text" placeholder="Username or Email"
-          class="w-full p-2.5 border border-gray-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-          required>
-        <input type="password" placeholder="Password"
-          class="w-full p-2.5 border border-gray-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-          required>
+        <div class="relative">
+          <input type="text" placeholder="Username or Email"
+            class="w-full p-2.5 border border-gray-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm pl-10">
+          <i class="fas fa-user absolute left-3 top-3 text-gray-400 text-sm"></i>
+        </div>
+        <div class="relative">
+          <input type="password" placeholder="Password"
+            class="w-full p-2.5 border border-gray-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm pl-10">
+          <i class="fas fa-lock absolute left-3 top-3 text-gray-400 text-sm"></i>
+        </div>
         <button type="submit"
-          class="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary-hover transition duration-200 text-sm">
+          class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 rounded-lg font-medium hover:from-blue-600 hover:to-indigo-700 transition duration-200 text-sm shadow-md">
           Sign In
         </button>
       </form>
@@ -56,64 +67,104 @@
   </div>
 
   <!-- NAVBAR -->
-  <div id="navbar" class="hidden bg-white/90 backdrop-blur-md border-b border-gray-border py-2.5 px-5 flex justify-between items-center shadow-soft">
-    <div class="text-primary text-base font-semibold tracking-tight cursor-pointer hover:text-primary-hover transition" onclick="goBackToDashboard()">Engagement Hub</div>
+  <div id="navbar" class="hidden bg-gradient-to-r from-blue-600 to-indigo-700 text-white border-b border-blue-500 py-2.5 px-5 flex justify-between items-center shadow-lg">
+    <div class="text-white text-base font-semibold tracking-tight cursor-pointer hover:text-blue-100 transition flex items-center gap-2" onclick="goBackToDashboard()">
+      <div class="w-6 h-6 bg-white/20 rounded flex items-center justify-center">
+        <i class="fas fa-comments text-xs"></i>
+      </div>
+      Engagement Hub
+    </div>
     <div class="flex items-center gap-2">
-      <div class="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center text-xs font-medium">JD</div>
+      <div class="w-7 h-7 rounded-full bg-white/20 text-white flex items-center justify-center text-xs font-medium">JD</div>
       <div class="text-sm font-medium">John Doe</div>
     </div>
   </div>
 
   <!-- DASHBOARD PAGE (Landing) -->
-  <div id="dashboard-page" class="hidden h-[calc(100vh-48px)] overflow-hidden bg-gray-light p-5">
-    <h1 class="text-xl font-bold mb-1 tracking-tight">Customer Dashboard</h1>
-    <p class="text-gray-700 mb-4 text-sm">Select a customer to explore engagement insights.</p>
+  <div id="dashboard-page" class="hidden h-[calc(100vh-48px)] overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 p-5">
+    <div class="bg-white/70 backdrop-blur-sm rounded-xl p-5 mb-5 shadow-soft">
+      <h1 class="text-xl font-bold mb-1 tracking-tight text-gray-800">Customer Dashboard</h1>
+      <p class="text-gray-700 mb-4 text-sm">Select a customer to explore engagement insights.</p>
+    </div>
 
     <!-- Search -->
-    <div class="flex mb-4">
-      <input type="text" placeholder="Search customers..."
-        class="flex-1 p-2 border border-gray-border rounded-l-lg focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent text-sm">
-      <button class="bg-primary text-white py-1.5 px-4 rounded-r-lg font-medium hover:bg-primary-hover transition duration-200 text-sm">
+    <div class="flex mb-5">
+      <div class="relative flex-1">
+        <input type="text" placeholder="Search customers..."
+          class="w-full p-2.5 border border-gray-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm pl-10">
+        <i class="fas fa-search absolute left-3 top-3 text-gray-400 text-sm"></i>
+      </div>
+      <button class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2.5 px-4 rounded-r-lg font-medium hover:from-blue-600 hover:to-indigo-700 transition duration-200 text-sm shadow-md">
         Search
       </button>
     </div>
 
     <!-- Compact Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
         onclick="selectCustomer('TechCorp Inc.')">
-        <div class="font-semibold text-sm mb-0.5">TechCorp Inc.</div>
+        <div class="font-semibold text-sm mb-0.5 text-gray-800">TechCorp Inc.</div>
         <div class="text-gray-700 text-xs">Technology • 250 employees • San Francisco</div>
+        <div class="mt-2 flex justify-end">
+          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
         onclick="selectCustomer('Global Finance Ltd.')">
-        <div class="font-semibold text-sm mb-0.5">Global Finance Ltd.</div>
+        <div class="font-semibold text-sm mb-0.5 text-gray-800">Global Finance Ltd.</div>
         <div class="text-gray-700 text-xs">Finance • 500 employees • New York</div>
+        <div class="mt-2 flex justify-end">
+          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
         onclick="selectCustomer('HealthPlus Medical')">
-        <div class="font-semibold text-sm mb-0.5">HealthPlus Medical</div>
+        <div class="font-semibold text-sm mb-0.5 text-gray-800">HealthPlus Medical</div>
         <div class="text-gray-700 text-xs">Healthcare • 150 employees • Chicago</div>
+        <div class="mt-2 flex justify-end">
+          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
         onclick="selectCustomer('EduFuture Academy')">
-        <div class="font-semibold text-sm mb-0.5">EduFuture Academy</div>
+        <div class="font-semibold text-sm mb-0.5 text-gray-800">EduFuture Academy</div>
         <div class="text-gray-700 text-xs">Education • 80 employees • Boston</div>
+        <div class="mt-2 flex justify-end">
+          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
         onclick="selectCustomer('Retail Giant Co.')">
-        <div class="font-semibold text-sm mb-0.5">Retail Giant Co.</div>
+        <div class="font-semibold text-sm mb-0.5 text-gray-800">Retail Giant Co.</div>
         <div class="text-gray-700 text-xs">Retail • 1000 employees • Dallas</div>
+        <div class="mt-2 flex justify-end">
+          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-white rounded-lg p-3 border border-gray-border cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-primary transition"
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
         onclick="selectCustomer('Green Energy Solutions')">
-        <div class="font-semibold text-sm mb-0.5">Green Energy Solutions</div>
+        <div class="font-semibold text-sm mb-0.5 text-gray-800">Green Energy Solutions</div>
         <div class="text-gray-700 text-xs">Energy • 300 employees • Denver</div>
+        <div class="mt-2 flex justify-end">
+          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -121,18 +172,18 @@
   <!-- CUSTOMER PAGE -->
   <div id="customer-page" class="hidden h-[calc(100vh-48px)] overflow-hidden flex">
     <!-- LEFT SIDEBAR -->
-    <div class="w-56 bg-white/80 backdrop-blur-md border-r border-gray-border p-4 flex-shrink-0 shadow-soft flex flex-col">
+    <div class="w-56 bg-gradient-to-b from-white to-blue-50/80 backdrop-blur-md border-r border-gray-border p-4 flex-shrink-0 shadow-soft flex flex-col">
       <!-- Quick Links Section -->
       <div class="mb-4">
-        <h2 class="font-semibold mb-2 text-xs tracking-wide uppercase">Quick Links</h2>
+        <h2 class="font-semibold mb-2 text-xs tracking-wide uppercase text-gray-700">Quick Links</h2>
         <ul class="space-y-1 text-sm">
-          <li><a href="#" class="text-primary hover:underline">MIRO</a></li>
-          <li><a href="#" class="text-primary hover:underline">SLIDO</a></li>
-          <li><a href="#" class="text-primary hover:underline">JIRA</a></li>
-          <li><a href="#" class="text-primary hover:underline">LINKEDIN</a></li>
-          <li><a href="#" class="text-primary hover:underline">7TABS</a></li>
-          <li><a href="#" class="text-primary hover:underline">TOGGL</a></li>
-          <li><a href="#" class="text-primary hover:underline">PSYCHOLOGY TEST</a></li>
+          <li><a href="#" class="text-primary hover:text-primary-hover transition flex items-center gap-2"><i class="fas fa-palette text-blue-500"></i> MIRO</a></li>
+          <li><a href="#" class="text-primary hover:text-primary-hover transition flex items-center gap-2"><i class="fas fa-poll text-blue-500"></i> SLIDO</a></li>
+          <li><a href="#" class="text-primary hover:text-primary-hover transition flex items-center gap-2"><i class="fas fa-tasks text-blue-500"></i> JIRA</a></li>
+          <li><a href="#" class="text-primary hover:text-primary-hover transition flex items-center gap-2"><i class="fab fa-linkedin text-blue-500"></i> LINKEDIN</a></li>
+          <li><a href="#" class="text-primary hover:text-primary-hover transition flex items-center gap-2"><i class="fas fa-folder-open text-blue-500"></i> 7TABS</a></li>
+          <li><a href="#" class="text-primary hover:text-primary-hover transition flex items-center gap-2"><i class="fas fa-clock text-blue-500"></i> TOGGL</a></li>
+          <li><a href="#" class="text-primary hover:text-primary-hover transition flex items-center gap-2"><i class="fas fa-brain text-blue-500"></i> PSYCHOLOGY TEST</a></li>
         </ul>
       </div>
 
@@ -141,17 +192,17 @@
 
       <!-- Chat History Section -->
       <div>
-        <h2 class="font-semibold mb-2 text-xs tracking-wide uppercase">Chat History</h2>
+        <h2 class="font-semibold mb-2 text-xs tracking-wide uppercase text-gray-700">Chat History</h2>
         <div class="space-y-2">
-          <div class="p-2 rounded-lg bg-gray-50 hover:bg-gray-100 cursor-pointer transition text-xs">
+          <div class="p-2 rounded-lg bg-blue-50/70 hover:bg-blue-100 cursor-pointer transition text-xs border border-blue-100">
             <div class="font-medium text-gray-800">Initial Discussion</div>
             <div class="text-gray-500 text-[11px]">Yesterday, 2:30 PM</div>
           </div>
-          <div class="p-2 rounded-lg bg-gray-50 hover:bg-gray-100 cursor-pointer transition text-xs">
+          <div class="p-2 rounded-lg bg-blue-50/70 hover:bg-blue-100 cursor-pointer transition text-xs border border-blue-100">
             <div class="font-medium text-gray-800">Project Planning</div>
             <div class="text-gray-500 text-[11px]">Today, 10:15 AM</div>
           </div>
-          <div class="p-2 rounded-lg bg-gray-50 hover:bg-gray-100 cursor-pointer transition text-xs">
+          <div class="p-2 rounded-lg bg-blue-50/70 hover:bg-blue-100 cursor-pointer transition text-xs border border-blue-100">
             <div class="font-medium text-gray-800">Requirements Review</div>
             <div class="text-gray-500 text-[11px]">Today, 11:45 AM</div>
           </div>
@@ -160,81 +211,84 @@
     </div>
 
     <!-- MAIN CONTENT -->
-    <div class="flex-1 flex flex-col bg-gray-light p-5">
-      <div class="mb-4">
-        <h1 id="customer-title" class="text-xl font-bold mb-0.5 tracking-tight">Customer Name</h1>
+    <div class="flex-1 flex flex-col bg-gradient-to-b from-gray-light to-blue-50 p-5">
+      <div class="mb-4 bg-white/70 backdrop-blur-sm rounded-xl p-4 shadow-soft">
+        <h1 id="customer-title" class="text-xl font-bold mb-0.5 tracking-tight text-gray-800">Customer Name</h1>
         <p id="customer-description" class="text-gray-700 text-xs">Industry • Employees • Location</p>
         <!-- Brief overview about the customer -->
-        <p id="customer-overview" class="text-gray-600 text-sm mt-2">Brief overview: TechCorp Inc. is a leading provider of cloud-based solutions focused on helping organizations modernize their IT and improve customer experiences. Recent engagements include automation, UX improvements, and platform migrations.</p>
+        <p id="customer-overview" class="text-gray-600 text-sm mt-2">TechCorp Inc. is a leading provider of cloud-based solutions focused on helping organizations modernize their IT and improve customer experiences. Recent engagements include automation, UX improvements, and platform migrations.</p>
       </div>
 
       <!-- Engagement Journey -->
-      <div class="mb-5">
-        <h3 class="font-semibold mb-3 text-xs uppercase tracking-wide text-gray-700">Engagement Journey</h3>
-        <div class="flex items-center justify-between relative">
-          <div class="flex flex-col items-center relative flex-1">
-            <div class="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-semibold border-2 border-primary z-10">1</div>
-            <div class="absolute top-3 left-1/2 w-full h-0.5 bg-gray-border z-0"></div>
-            <div class="text-primary font-medium text-[11px] mt-2">Pre-Kickoff</div>
-          </div>
-          <div class="flex flex-col items-center relative flex-1">
-            <div class="w-7 h-7 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center text-[10px] font-semibold border-2 border-gray-border z-10">2</div>
-            <div class="absolute top-3 left-1/2 w-full h-0.5 bg-gray-border z-0"></div>
-            <div class="text-gray-700 font-medium text-[11px] mt-2">Discovery</div>
-          </div>
-          <div class="flex flex-col items-center relative flex-1">
-            <div class="w-7 h-7 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center text-[10px] font-semibold border-2 border-gray-border z-10">3</div>
-            <div class="absolute top-3 left-1/2 w-full h-0.5 bg-gray-border z-0"></div>
-            <div class="text-gray-700 font-medium text-[11px] mt-2">Workshop</div>
-          </div>
-          <div class="flex flex-col items-center relative flex-1">
-            <div class="w-7 h-7 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center text-[10px] font-semibold border-2 border-gray-border z-10">4</div>
-            <div class="absolute top-3 left-1/2 w-full h-0.5 bg-gray-border z-0"></div>
-            <div class="text-gray-700 font-medium text-[11px] mt-2">Implementation</div>
-          </div>
-          <div class="flex flex-col items-center relative flex-1">
-            <div class="w-7 h-7 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center text-[10px] font-semibold border-2 border-gray-border z-10">5</div>
-            <div class="text-gray-700 font-medium text-[11px] mt-2">Review</div>
-          </div>
-        </div>
-      </div>
+     <div class="mb-5 bg-white/70 backdrop-blur-sm rounded-xl p-4 shadow-soft">
+  <h3 class="font-semibold mb-3 text-xs uppercase tracking-wide text-gray-700">Engagement Journey</h3>
+  <div class="flex items-center justify-between relative">
+    <!-- Arrow line that extends fully -->
+    <div class="absolute top-3 left-0 right-1 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 z-0"></div>
+    
+    <!-- Arrow head that connects directly to the line -->
+    <div class="absolute right-0 top-[13px] transform -translate-y-1/2 z-10">
+      <div class="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px] border-l-indigo-500"></div>
+    </div>
 
+    <div class="flex flex-col items-center relative flex-1">
+      <div class="w-7 h-7 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white flex items-center justify-center text-[10px] font-semibold border-2 border-blue-500 z-10">1</div>
+      <div class="text-primary font-medium text-[11px] mt-2">Pre-Kickoff</div>
+    </div>
+    <div class="flex flex-col items-center relative flex-1">
+      <div class="w-7 h-7 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white flex items-center justify-center text-[10px] font-semibold border-2 border-blue-500 z-10">2</div>
+      <div class="text-primary font-medium text-[11px] mt-2">Discovery</div>
+    </div>
+    <div class="flex flex-col items-center relative flex-1">
+      <div class="w-7 h-7 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white flex items-center justify-center text-[10px] font-semibold border-2 border-blue-500 z-10">3</div>
+      <div class="text-primary font-medium text-[11px] mt-2">Workshop</div>
+    </div>
+    <div class="flex flex-col items-center relative flex-1">
+      <div class="w-7 h-7 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white flex items-center justify-center text-[10px] font-semibold border-2 border-blue-500 z-10">4</div>
+      <div class="text-primary font-medium text-[11px] mt-2">Implementation</div>
+    </div>
+    <div class="flex flex-col items-center relative flex-1">
+      <div class="w-7 h-7 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white flex items-center justify-center text-[10px] font-semibold border-2 border-blue-500 z-10">5</div>
+      <div class="text-primary font-medium text-[11px] mt-2">Review</div>
+    </div>
+  </div>
+</div>
       <!-- AI Assistant Input -->
-      <div id="ai-input-container" class="mt-auto bg-white border-t border-gray-border p-3 flex items-center shadow-sm rounded-t-xl relative">
+      <div id="ai-input-container" class="mt-auto bg-gradient-to-r from-white to-blue-50 border-t border-gray-border p-3 flex items-center shadow-sm rounded-t-xl relative">
         <div class="text-yellow-500 text-lg mr-3">✨</div>
         <input id="ai-input" type="text" placeholder="Ask AI or leave a note..."
           class="flex-1 bg-transparent text-gray-900 focus:outline-none placeholder-gray-400 text-sm">
         <div id="ai-actions" class="hidden flex items-center space-x-2">
-          <button id="send-btn" class="bg-primary text-white py-1 px-3 rounded-md font-medium hover:bg-primary-hover transition duration-200 text-xs">Send</button>
+          <button id="send-btn" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-1 px-3 rounded-md font-medium hover:from-blue-600 hover:to-indigo-700 transition duration-200 text-xs shadow-sm">Send</button>
           <button id="cancel-btn" class="bg-gray-200 text-gray-700 py-1 px-3 rounded-md font-medium hover:bg-gray-300 transition duration-200 text-xs">Cancel</button>
         </div>
       </div>
     </div>
 
     <!-- RIGHT TREE STRUCTURE -->
-    <div class="w-56 bg-white/80 backdrop-blur-md border-l border-gray-border p-4 flex-shrink-0 shadow-soft">
-      <h2 class="font-semibold mb-2 text-xs uppercase tracking-wide">SharePoint Folders</h2>
+    <div class="w-56 bg-gradient-to-b from-white to-indigo-50/80 backdrop-blur-md border-l border-gray-border p-4 flex-shrink-0 shadow-soft">
+      <h2 class="font-semibold mb-2 text-xs uppercase tracking-wide text-gray-700">SharePoint Folders</h2>
       <ul class="text-sm space-y-1.5 leading-relaxed">
-        <li>📁 01 Prep
+        <li class="text-blue-600">📁 01 Prep
           <ul class="ml-4 text-gray-700 text-xs">
-            <li>📄 Notes.docx</li>
-            <li>📄 Checklist.xlsx</li>
+            <li class="hover:text-blue-500 cursor-pointer transition">📄 Notes.docx</li>
+            <li class="hover:text-blue-500 cursor-pointer transition">📄 Checklist.xlsx</li>
           </ul>
         </li>
-        <li>📁 02 Interview
+        <li class="text-blue-600">📁 02 Interview
           <ul class="ml-4 text-gray-700 text-xs">
-            <li>📄 Questions.docx</li>
-            <li>📄 Summary.pdf</li>
+            <li class="hover:text-blue-500 cursor-pointer transition">📄 Questions.docx</li>
+            <li class="hover:text-blue-500 cursor-pointer transition">📄 Summary.pdf</li>
           </ul>
         </li>
-        <li>📁 03 Material
+        <li class="text-blue-600">📁 03 Material
           <ul class="ml-4 text-gray-700 text-xs">
-            <li>📄 Slides.pptx</li>
+            <li class="hover:text-blue-500 cursor-pointer transition">📄 Slides.pptx</li>
           </ul>
         </li>
-        <li>📁 04 Analysis</li>
-        <li>📁 05 Reports</li>
-        <li>📁 06 Final</li>
+        <li class="text-blue-600">📁 04 Analysis</li>
+        <li class="text-blue-600">📁 05 Reports</li>
+        <li class="text-blue-600">📁 06 Final</li>
       </ul>
     </div>
   </div>
