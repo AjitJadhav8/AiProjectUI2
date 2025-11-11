@@ -84,97 +84,42 @@
   <div id="dashboard-page" class="hidden h-[calc(100vh-48px)] overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 p-5">
     <div class="bg-white/70 backdrop-blur-sm rounded-xl p-5 mb-5 shadow-soft">
       <h1 class="text-xl font-bold mb-1 tracking-tight text-gray-800">Customer Dashboard</h1>
-      <p class="text-gray-700 mb-4 text-sm">Select a customer to explore engagement insights.</p>
+      <p class="text-gray-700 text-sm">Select a customer to explore engagement insights.</p>
     </div>
 
-    <!-- Search -->
-    <div class="flex mb-5">
-      <div class="relative flex-1">
-        <input type="text" placeholder="Search customers..."
-          class="w-full p-2.5 border border-gray-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm pl-10">
-        <i class="fas fa-search absolute left-3 top-3 text-gray-400 text-sm"></i>
+    <!-- Search and Action Bar -->
+    <div class="flex justify-between items-center mb-5">
+      <div class="flex flex-1 max-w-lg">
+        <div class="relative flex-1">
+          <input type="text" placeholder="Search customers..."
+            class="w-full p-2.5 border border-gray-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm pl-10">
+          <i class="fas fa-search absolute left-3 top-3 text-gray-400 text-sm"></i>
+        </div>
+        <button class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2.5 px-4 rounded-r-lg font-medium hover:from-blue-600 hover:to-indigo-700 transition duration-200 text-sm shadow-md">
+          Search
+        </button>
       </div>
-      <button class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2.5 px-4 rounded-r-lg font-medium hover:from-blue-600 hover:to-indigo-700 transition duration-200 text-sm shadow-md">
-        Search
+      
+      <button 
+        id="add-customer-btn" 
+        class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2.5 px-4 rounded-lg font-medium hover:from-blue-600 hover:to-indigo-700 transition duration-200 text-sm shadow-md flex items-center gap-2 ml-4"
+      >
+        <i class="fas fa-plus"></i> New Customer
       </button>
     </div>
 
     <!-- Compact Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
-        onclick="selectCustomer('TechCorp Inc.')">
-        <div class="font-semibold text-sm mb-0.5 text-gray-800">TechCorp Inc.</div>
-        <div class="text-gray-700 text-xs">Technology • 250 employees • San Francisco</div>
-        <div class="mt-2 flex justify-end">
-          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
-        onclick="selectCustomer('Global Finance Ltd.')">
-        <div class="font-semibold text-sm mb-0.5 text-gray-800">Global Finance Ltd.</div>
-        <div class="text-gray-700 text-xs">Finance • 500 employees • New York</div>
-        <div class="mt-2 flex justify-end">
-          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
-        onclick="selectCustomer('HealthPlus Medical')">
-        <div class="font-semibold text-sm mb-0.5 text-gray-800">HealthPlus Medical</div>
-        <div class="text-gray-700 text-xs">Healthcare • 150 employees • Chicago</div>
-        <div class="mt-2 flex justify-end">
-          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
-        onclick="selectCustomer('EduFuture Academy')">
-        <div class="font-semibold text-sm mb-0.5 text-gray-800">EduFuture Academy</div>
-        <div class="text-gray-700 text-xs">Education • 80 employees • Boston</div>
-        <div class="mt-2 flex justify-end">
-          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
-        onclick="selectCustomer('Retail Giant Co.')">
-        <div class="font-semibold text-sm mb-0.5 text-gray-800">Retail Giant Co.</div>
-        <div class="text-gray-700 text-xs">Retail • 1000 employees • Dallas</div>
-        <div class="mt-2 flex justify-end">
-          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition"
-        onclick="selectCustomer('Green Energy Solutions')">
-        <div class="font-semibold text-sm mb-0.5 text-gray-800">Green Energy Solutions</div>
-        <div class="text-gray-700 text-xs">Energy • 300 employees • Denver</div>
-        <div class="mt-2 flex justify-end">
-          <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-      </div>
+    <div id="customers-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Customer cards will be dynamically generated here -->
     </div>
   </div>
 
   <!-- CUSTOMER PAGE -->
   <div id="customer-page" class="hidden h-[calc(100vh-48px)] overflow-hidden flex">
-    <!-- LEFT SIDEBAR -->
-    <div class="w-56 bg-gradient-to-b from-white to-blue-50/80 backdrop-blur-md border-r border-gray-border p-4 flex-shrink-0 shadow-soft flex flex-col">
-      <!-- Quick Links Section -->
-      <div class="mb-4">
+    <!-- LEFT SIDEBAR - 50% Quick Links, 50% Chat History -->
+    <div class="w-56 bg-gradient-to-b from-white to-blue-50/80 backdrop-blur-md border-r border-gray-border flex-shrink-0 shadow-soft flex flex-col">
+      <!-- Quick Links Section - 50% height -->
+      <div class="h-1/2 p-4 border-b border-gray-border overflow-y-auto">
         <h2 class="font-semibold mb-2 text-xs tracking-wide uppercase text-gray-700">Quick Links</h2>
         <ul class="space-y-1 text-sm">
           <li><a href="#" class="text-primary hover:text-primary-hover transition flex items-center gap-2"><i class="fas fa-palette text-blue-500"></i> MIRO</a></li>
@@ -187,11 +132,8 @@
         </ul>
       </div>
 
-      <!-- Horizontal Divider -->
-      <hr class="border-gray-border mb-4">
-
-      <!-- Chat History Section -->
-      <div>
+      <!-- Chat History Section - 50% height -->
+      <div class="h-1/2 p-4 overflow-y-auto">
         <h2 class="font-semibold mb-2 text-xs tracking-wide uppercase text-gray-700">Chat History</h2>
         <div class="space-y-2">
           <div class="p-2 rounded-lg bg-blue-50/70 hover:bg-blue-100 cursor-pointer transition text-xs border border-blue-100">
@@ -205,6 +147,14 @@
           <div class="p-2 rounded-lg bg-blue-50/70 hover:bg-blue-100 cursor-pointer transition text-xs border border-blue-100">
             <div class="font-medium text-gray-800">Requirements Review</div>
             <div class="text-gray-500 text-[11px]">Today, 11:45 AM</div>
+          </div>
+          <div class="p-2 rounded-lg bg-blue-50/70 hover:bg-blue-100 cursor-pointer transition text-xs border border-blue-100">
+            <div class="font-medium text-gray-800">Budget Discussion</div>
+            <div class="text-gray-500 text-[11px]">Today, 3:20 PM</div>
+          </div>
+          <div class="p-2 rounded-lg bg-blue-50/70 hover:bg-blue-100 cursor-pointer transition text-xs border border-blue-100">
+            <div class="font-medium text-gray-800">Timeline Review</div>
+            <div class="text-gray-500 text-[11px]">Today, 4:45 PM</div>
           </div>
         </div>
       </div>
@@ -265,31 +215,234 @@
       </div>
     </div>
 
-    <!-- RIGHT TREE STRUCTURE -->
-    <div class="w-56 bg-gradient-to-b from-white to-indigo-50/80 backdrop-blur-md border-l border-gray-border p-4 flex-shrink-0 shadow-soft">
-      <h2 class="font-semibold mb-2 text-xs uppercase tracking-wide text-gray-700">SharePoint Folders</h2>
-      <ul class="text-sm space-y-1.5 leading-relaxed">
-        <li class="text-blue-600">📁 01 Prep
-          <ul class="ml-4 text-gray-700 text-xs">
-            <li class="hover:text-blue-500 cursor-pointer transition">📄 Notes.docx</li>
-            <li class="hover:text-blue-500 cursor-pointer transition">📄 Checklist.xlsx</li>
-          </ul>
-        </li>
-        <li class="text-blue-600">📁 02 Interview
-          <ul class="ml-4 text-gray-700 text-xs">
-            <li class="hover:text-blue-500 cursor-pointer transition">📄 Questions.docx</li>
-            <li class="hover:text-blue-500 cursor-pointer transition">📄 Summary.pdf</li>
-          </ul>
-        </li>
-        <li class="text-blue-600">📁 03 Material
-          <ul class="ml-4 text-gray-700 text-xs">
-            <li class="hover:text-blue-500 cursor-pointer transition">📄 Slides.pptx</li>
-          </ul>
-        </li>
-        <li class="text-blue-600">📁 04 Analysis</li>
-        <li class="text-blue-600">📁 05 Reports</li>
-        <li class="text-blue-600">📁 06 Final</li>
-      </ul>
+    <!-- RIGHT SIDEBAR - 50% SharePoint Folders, 50% Stakeholders -->
+    <div class="w-56 bg-gradient-to-b from-white to-indigo-50/80 backdrop-blur-md border-l border-gray-border flex-shrink-0 shadow-soft flex flex-col">
+      <!-- SharePoint Folders Section - 50% height -->
+      <div class="h-1/2 p-4 border-b border-gray-border overflow-y-auto">
+        <div class="flex justify-between items-center mb-2">
+          <h2 class="font-semibold text-xs uppercase tracking-wide text-gray-700">SharePoint Folders</h2>
+          <div class="flex gap-1">
+            <button class="text-blue-500 hover:text-blue-700 transition text-xs" title="Add Folder">
+              <i class="fas fa-plus-circle"></i>
+            </button>
+            <button class="text-green-500 hover:text-green-700 transition text-xs" title="Sync with SharePoint">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+          </div>
+        </div>
+        <ul class="text-sm space-y-1.5 leading-relaxed">
+          <li class="text-blue-600 flex justify-between items-start group">
+            <div class="flex-1">
+              <span>📁 01 Prep</span>
+              <ul class="ml-4 text-gray-700 text-xs">
+                <li class="hover:text-blue-500 cursor-pointer transition flex justify-between items-center group/item">
+                  <span>📄 Notes.docx</span>
+                  <div class="hidden group-hover/item:flex gap-1">
+                    <button class="text-blue-500 hover:text-blue-700 transition text-[10px]" title="Edit">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-red-500 hover:text-red-700 transition text-[10px]" title="Delete">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </li>
+                <li class="hover:text-blue-500 cursor-pointer transition flex justify-between items-center group/item">
+                  <span>📄 Checklist.xlsx</span>
+                  <div class="hidden group-hover/item:flex gap-1">
+                    <button class="text-blue-500 hover:text-blue-700 transition text-[10px]" title="Edit">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-red-500 hover:text-red-700 transition text-[10px]" title="Delete">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="hidden group-hover:flex gap-1 ml-2">
+              <button class="text-blue-500 hover:text-blue-700 transition text-xs" title="Edit Folder">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="text-red-500 hover:text-red-700 transition text-xs" title="Delete Folder">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </li>
+          <li class="text-blue-600 flex justify-between items-start group">
+            <div class="flex-1">
+              <span>📁 02 Interview</span>
+              <ul class="ml-4 text-gray-700 text-xs">
+                <li class="hover:text-blue-500 cursor-pointer transition flex justify-between items-center group/item">
+                  <span>📄 Questions.docx</span>
+                  <div class="hidden group-hover/item:flex gap-1">
+                    <button class="text-blue-500 hover:text-blue-700 transition text-[10px]" title="Edit">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-red-500 hover:text-red-700 transition text-[10px]" title="Delete">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </li>
+                <li class="hover:text-blue-500 cursor-pointer transition flex justify-between items-center group/item">
+                  <span>📄 Summary.pdf</span>
+                  <div class="hidden group-hover/item:flex gap-1">
+                    <button class="text-blue-500 hover:text-blue-700 transition text-[10px]" title="Edit">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-red-500 hover:text-red-700 transition text-[10px]" title="Delete">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="hidden group-hover:flex gap-1 ml-2">
+              <button class="text-blue-500 hover:text-blue-700 transition text-xs" title="Edit Folder">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="text-red-500 hover:text-red-700 transition text-xs" title="Delete Folder">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </li>
+          <li class="text-blue-600 flex justify-between items-start group">
+            <div class="flex-1">
+              <span>📁 03 Material</span>
+              <ul class="ml-4 text-gray-700 text-xs">
+                <li class="hover:text-blue-500 cursor-pointer transition flex justify-between items-center group/item">
+                  <span>📄 Slides.pptx</span>
+                  <div class="hidden group-hover/item:flex gap-1">
+                    <button class="text-blue-500 hover:text-blue-700 transition text-[10px]" title="Edit">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-red-500 hover:text-red-700 transition text-[10px]" title="Delete">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="hidden group-hover:flex gap-1 ml-2">
+              <button class="text-blue-500 hover:text-blue-700 transition text-xs" title="Edit Folder">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="text-red-500 hover:text-red-700 transition text-xs" title="Delete Folder">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </li>
+          <li class="text-blue-600 flex justify-between items-start group">
+            <span>📁 04 Analysis</span>
+            <div class="hidden group-hover:flex gap-1 ml-2">
+              <button class="text-blue-500 hover:text-blue-700 transition text-xs" title="Edit Folder">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="text-red-500 hover:text-red-700 transition text-xs" title="Delete Folder">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </li>
+          <li class="text-blue-600 flex justify-between items-start group">
+            <span>📁 05 Reports</span>
+            <div class="hidden group-hover:flex gap-1 ml-2">
+              <button class="text-blue-500 hover:text-blue-700 transition text-xs" title="Edit Folder">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="text-red-500 hover:text-red-700 transition text-xs" title="Delete Folder">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </li>
+          <li class="text-blue-600 flex justify-between items-start group">
+            <span>📁 06 Final</span>
+            <div class="hidden group-hover:flex gap-1 ml-2">
+              <button class="text-blue-500 hover:text-blue-700 transition text-xs" title="Edit Folder">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="text-red-500 hover:text-red-700 transition text-xs" title="Delete Folder">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Stakeholders Section - 50% height -->
+      <div class="h-1/2 p-4 overflow-y-auto">
+  <h2 class="font-semibold mb-3 text-xs uppercase tracking-wide text-gray-700">Stakeholders</h2>
+  
+  <div class="space-y-3">
+    <div class="cursor-pointer hover:text-blue-600 transition">
+      <div class="font-medium text-gray-800 text-sm">Sarah Johnson</div>
+      <div class="text-gray-600 text-xs">Project Sponsor • sarah.j@company.com</div>
+    </div>
+
+    <div class="cursor-pointer hover:text-blue-600 transition">
+      <div class="font-medium text-gray-800 text-sm">Michael Chen</div>
+      <div class="text-gray-600 text-xs">Technical Lead • michael.c@company.com</div>
+    </div>
+
+    <div class="cursor-pointer hover:text-blue-600 transition">
+      <div class="font-medium text-gray-800 text-sm">Emma Rodriguez</div>
+      <div class="text-gray-600 text-xs">Business Analyst • emma.r@company.com</div>
+    </div>
+
+    <div class="cursor-pointer hover:text-blue-600 transition">
+      <div class="font-medium text-gray-800 text-sm">David Wilson</div>
+      <div class="text-gray-600 text-xs">UX Designer • david.w@company.com</div>
+    </div>
+
+    <div class="cursor-pointer hover:text-blue-600 transition">
+      <div class="font-medium text-gray-800 text-sm">Lisa Thompson</div>
+      <div class="text-gray-600 text-xs">Quality Assurance • lisa.t@company.com</div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+
+  <!-- CUSTOMER FORM MODAL -->
+  <div id="customer-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-xl shadow-xl w-full max-w-md">
+      <div class="p-5 border-b border-gray-border">
+        <h2 id="modal-title" class="text-lg font-semibold text-gray-800">Add New Customer</h2>
+      </div>
+      <form id="customer-form" class="p-5 space-y-4">
+        <input type="hidden" id="customer-id">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
+          <input type="text" id="customer-name" required
+            class="w-full p-2.5 border border-gray-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Industry</label>
+          <input type="text" id="customer-industry" required
+            class="w-full p-2.5 border border-gray-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Employees</label>
+          <input type="number" id="customer-employees" required
+            class="w-full p-2.5 border border-gray-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+          <input type="text" id="customer-location" required
+            class="w-full p-2.5 border border-gray-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Overview</label>
+          <textarea id="customer-overview-input" rows="3"
+            class="w-full p-2.5 border border-gray-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"></textarea>
+        </div>
+        <div class="flex justify-end gap-3 pt-2">
+          <button type="button" id="cancel-modal-btn" class="bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition duration-200 text-sm">
+            Cancel
+          </button>
+          <button type="submit" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 px-4 rounded-lg font-medium hover:from-blue-600 hover:to-indigo-700 transition duration-200 text-sm shadow-md">
+            Save Customer
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -318,28 +471,220 @@
       document.getElementById("login-page").classList.add("hidden");
       document.getElementById("navbar").classList.remove("hidden");
       document.getElementById("dashboard-page").classList.remove("hidden");
+      loadCustomers();
     });
 
-    // SELECT CUSTOMER
-    function selectCustomer(name) {
+    // CUSTOMER MANAGEMENT
+    let customers = [
+      {
+        id: 1,
+        name: "TechCorp Inc.",
+        industry: "Technology",
+        employees: 250,
+        location: "San Francisco",
+        overview: "TechCorp Inc. is a leading provider of cloud-based solutions focused on helping organizations modernize their IT and improve customer experiences. Recent engagements include automation, UX improvements, and platform migrations."
+      },
+      {
+        id: 2,
+        name: "Global Finance Ltd.",
+        industry: "Finance",
+        employees: 500,
+        location: "New York",
+        overview: "Global Finance Ltd. is a multinational financial services company specializing in investment banking and wealth management. They are currently expanding their digital transformation initiatives."
+      },
+      {
+        id: 3,
+        name: "HealthPlus Medical",
+        industry: "Healthcare",
+        employees: 150,
+        location: "Chicago",
+        overview: "HealthPlus Medical operates a network of clinics and hospitals focused on providing accessible healthcare services. They are implementing new patient management systems."
+      },
+      {
+        id: 4,
+        name: "EduFuture Academy",
+        industry: "Education",
+        employees: 80,
+        location: "Boston",
+        overview: "EduFuture Academy is an innovative educational institution focusing on STEM education and digital literacy programs for K-12 students."
+      },
+      {
+        id: 5,
+        name: "Retail Giant Co.",
+        industry: "Retail",
+        employees: 1000,
+        location: "Dallas",
+        overview: "Retail Giant Co. operates a chain of department stores across the country. They are currently modernizing their e-commerce platform and supply chain management."
+      },
+      {
+        id: 6,
+        name: "Green Energy Solutions",
+        industry: "Energy",
+        employees: 300,
+        location: "Denver",
+        overview: "Green Energy Solutions specializes in renewable energy technologies and sustainable infrastructure projects. They are expanding their solar and wind energy portfolios."
+      }
+    ];
+
+    function loadCustomers() {
+      const container = document.getElementById("customers-container");
+      container.innerHTML = "";
+      
+      customers.forEach(customer => {
+        const card = document.createElement("div");
+        card.className = "bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 cursor-pointer shadow-soft hover:-translate-y-0.5 hover:shadow-md hover:border-blue-400 transition";
+        card.innerHTML = `
+          <div class="flex justify-between items-start">
+            <div class="font-semibold text-sm mb-0.5 text-gray-800">${customer.name}</div>
+            <div class="flex gap-1">
+              <button class="edit-btn text-blue-500 hover:text-blue-700 transition" data-id="${customer.id}">
+                <i class="fas fa-edit text-xs"></i>
+              </button>
+              <button class="delete-btn text-red-500 hover:text-red-700 transition" data-id="${customer.id}">
+                <i class="fas fa-trash text-xs"></i>
+              </button>
+            </div>
+          </div>
+          <div class="text-gray-700 text-xs">${customer.industry} • ${customer.employees} employees • ${customer.location}</div>
+          <div class="mt-2 flex justify-end">
+            <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        `;
+        
+        // Add click event to select customer
+        card.addEventListener("click", (e) => {
+          if (!e.target.closest(".edit-btn") && !e.target.closest(".delete-btn")) {
+            selectCustomer(customer.id);
+          }
+        });
+        
+        container.appendChild(card);
+      });
+      
+      // Add event listeners to edit and delete buttons
+      document.querySelectorAll(".edit-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          editCustomer(parseInt(btn.getAttribute("data-id")));
+        });
+      });
+      
+      document.querySelectorAll(".delete-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          deleteCustomer(parseInt(btn.getAttribute("data-id")));
+        });
+      });
+    }
+
+    function selectCustomer(id) {
+      const customer = customers.find(c => c.id === id);
+      if (!customer) return;
+      
       document.getElementById("dashboard-page").classList.add("hidden");
       document.getElementById("customer-page").classList.remove("hidden");
-      document.getElementById("customer-title").textContent = name;
-
-      const descMap = {
-        "TechCorp Inc.": "Technology • 250 employees • San Francisco",
-        "Global Finance Ltd.": "Finance • 500 employees • New York",
-        "HealthPlus Medical": "Healthcare • 150 employees • Chicago",
-        "EduFuture Academy": "Education • 80 employees • Boston",
-        "Retail Giant Co.": "Retail • 1000 employees • Dallas",
-        "Green Energy Solutions": "Energy • 300 employees • Denver",
-      };
-      document.getElementById("customer-description").textContent = descMap[name] || "";
+      document.getElementById("customer-title").textContent = customer.name;
+      document.getElementById("customer-description").textContent = 
+        `${customer.industry} • ${customer.employees} employees • ${customer.location}`;
+      document.getElementById("customer-overview").textContent = customer.overview;
     }
 
     function goBackToDashboard() {
       document.getElementById("customer-page").classList.add("hidden");
       document.getElementById("dashboard-page").classList.remove("hidden");
+    }
+
+    // MODAL FUNCTIONS
+    document.getElementById("add-customer-btn").addEventListener("click", () => {
+      openCustomerModal();
+    });
+
+    document.getElementById("cancel-modal-btn").addEventListener("click", () => {
+      closeCustomerModal();
+    });
+
+    document.getElementById("customer-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      saveCustomer();
+    });
+
+    function openCustomerModal(customer = null) {
+      const modal = document.getElementById("customer-modal");
+      const title = document.getElementById("modal-title");
+      
+      if (customer) {
+        title.textContent = "Edit Customer";
+        document.getElementById("customer-id").value = customer.id;
+        document.getElementById("customer-name").value = customer.name;
+        document.getElementById("customer-industry").value = customer.industry;
+        document.getElementById("customer-employees").value = customer.employees;
+        document.getElementById("customer-location").value = customer.location;
+        document.getElementById("customer-overview-input").value = customer.overview;
+      } else {
+        title.textContent = "Add New Customer";
+        document.getElementById("customer-form").reset();
+        document.getElementById("customer-id").value = "";
+      }
+      
+      modal.classList.remove("hidden");
+    }
+
+    function closeCustomerModal() {
+      document.getElementById("customer-modal").classList.add("hidden");
+    }
+
+    function saveCustomer() {
+      const id = document.getElementById("customer-id").value;
+      const name = document.getElementById("customer-name").value;
+      const industry = document.getElementById("customer-industry").value;
+      const employees = parseInt(document.getElementById("customer-employees").value);
+      const location = document.getElementById("customer-location").value;
+      const overview = document.getElementById("customer-overview-input").value;
+      
+      if (id) {
+        // Update existing customer
+        const index = customers.findIndex(c => c.id === parseInt(id));
+        if (index !== -1) {
+          customers[index] = {
+            id: parseInt(id),
+            name,
+            industry,
+            employees,
+            location,
+            overview
+          };
+        }
+      } else {
+        // Add new customer
+        const newId = customers.length > 0 ? Math.max(...customers.map(c => c.id)) + 1 : 1;
+        customers.push({
+          id: newId,
+          name,
+          industry,
+          employees,
+          location,
+          overview
+        });
+      }
+      
+      loadCustomers();
+      closeCustomerModal();
+    }
+
+    function editCustomer(id) {
+      const customer = customers.find(c => c.id === id);
+      if (customer) {
+        openCustomerModal(customer);
+      }
+    }
+
+    function deleteCustomer(id) {
+      if (confirm("Are you sure you want to delete this customer?")) {
+        customers = customers.filter(c => c.id !== id);
+        loadCustomers();
+      }
     }
   </script>
 </body>
